@@ -1,26 +1,47 @@
-<!doctype html>
-<html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
-  <meta charset="utf-8">
-  <title>A Compliment For You 🌸</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Compliment Generator</title>
   <style>
-    body { font-family: system-ui; display: flex; align-items: center; justify-content: center; height: 100vh; margin: 0; background: linear-gradient(135deg,#f8f0ff,#fff7f0);}
-    .card { background: white; padding: 24px; border-radius: 12px; box-shadow: 0 8px 30px rgba(0,0,0,0.12); max-width: 420px; text-align: center;}
-    h1 { margin: 0 0 8px; font-size: 20px;}
-    p { margin: 12px 0; font-size: 16px;}
-    button { background: #6b46c1; color: white; border: none; padding: 10px 14px; border-radius: 8px; font-size: 15px; cursor: pointer;}
-    small { display: block; margin-top: 8px; color: #666;}
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f4f4f4;
+      text-align: center;
+      padding: 50px;
+      transition: background-color 0.5s ease;
+    }
+    h1 {
+      color: #333;
+    }
+    #compliment {
+      font-size: 1.5em;
+      margin: 20px 0;
+      color: #444;
+    }
+    button {
+      padding: 10px 20px;
+      font-size: 1em;
+      background-color: #ff6f61;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+    button:hover {
+      background-color: #e65b50;
+    }
   </style>
 </head>
 <body>
-  <div class="card">
-    <h1>💌 A Little Note</h1>
-    <p id="compliment">Loading…</p>
-    <button id="regen">Surprise me again</button>
-    <small>Made with ❤️ just for you.</small>
-  </div>
+  <h1>Compliment for Shrutti ❤️</h1>
+  <p id="compliment"></p>
+  <button id="regen">Give me another compliment</button>
+
   <script>
-    const name = "Lisaaaaa";
+    const name = "Shrutti";
     const compliments = [
       `${name}, tumhe dekh ke lagta hai ki Photoshop ne bhi surrender kar diya hoga.`,
       `${name}, tumhari smile ka 'algorithm' kisi ka bhi mood optimize kar deta hai.`,
@@ -28,11 +49,25 @@
       `${name}, tum wo rare update ho jo sirf improvements laata hai, koi error nahi.`,
       `${name}, tumhare glasses tumhari cuteness ka open-source proof hai.`,
       `${name}, tumhari vibe to premium subscription jaisi hai — rare aur priceless.`,
-      `${name}, tum wo aesthetic ho jo kisi bhi background ko masterpiece bana de.`
+      `${name}, tum wo aesthetic ho jo kisi bhi background ko masterpiece bana de.`,
+      `${name}, tumhare hone se normal din bhi festival lagta hai.`,
+      `${name}, tum ek Google search ho jisme sirf perfect results aate hain.`,
+      `${name}, tumhari awaaz ek playlist jaisi hai — repeat pe chalti rahe to bhi bore na kare.`,
+      `${name}, tumhari presence ek magic trick hai — sabka mood instantly change ho jaata hai.`,
+      `${name}, agar tum ek emoji hoti to tum ❤️ + 🌸 ka perfect combo hoti.`,
+      `${name}, tumhara naam sunte hi mere brain ka processor overclock ho jaata hai.`,
+      `${name}, tumhari aankhon me lagta hai poora milky way galaxy store ho rakha hai.`
     ];
+
     function pick() {
-      document.getElementById('compliment').textContent = compliments[Math.floor(Math.random()*compliments.length)];
+      document.getElementById('compliment').textContent =
+        compliments[Math.floor(Math.random() * compliments.length)];
+      
+      // Random background color effect
+      const randomColor = `hsl(${Math.floor(Math.random() * 360)}, 70%, 85%)`;
+      document.body.style.backgroundColor = randomColor;
     }
+
     document.getElementById('regen').addEventListener('click', pick);
     pick();
   </script>
